@@ -1,4 +1,3 @@
 ## 2022-2KWMobileApp
 
-### App Title
-+ Map Trip
+### App Title: Map Trip
