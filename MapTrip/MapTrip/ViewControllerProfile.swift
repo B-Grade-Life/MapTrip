@@ -17,8 +17,9 @@ class ViewControllerProfile: UIViewController {
         super.viewDidLoad()
         configure()
     }
+    
     func configure(){
-        sampleImageView.layer.cornerRadius = CGFloat(50)
+        sampleImageView.layer.cornerRadius = CGFloat(8)
     }
     
 }
