@@ -6,12 +6,23 @@
 //
 
 import Foundation
-//    @IBOutlet var viewCorner: UIView!
-//    @IBOutlet var viewCorner2: UIView!
+import UIKit
 
-//        viewCorner.layer.masksToBounds = false
-//        viewCorner.layer.cornerRadius = 10
-//        viewCorner.clipsToBounds = true
-//        viewCorner2.layer.masksToBounds = false
-//        viewCorner2.layer.cornerRadius = 10
-//        viewCorner2.clipsToBounds = true
+class ViewControllerMapRoute: UIViewController {
+    
+    @IBOutlet var viewBestRoute: UIView!
+    @IBOutlet var viewRoute: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewBestRoute.layer.masksToBounds = false
+        viewBestRoute.layer.cornerRadius = 10
+        viewBestRoute.clipsToBounds = true
+        
+        viewRoute.layer.masksToBounds = false
+        viewRoute.layer.cornerRadius = 10
+        viewRoute.clipsToBounds = true
+    }
+}
+
