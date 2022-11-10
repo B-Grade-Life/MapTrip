@@ -50,7 +50,7 @@ class ViewControllerHome: UIViewController {
         dateFormatterWeekday.dateFormat = "EEE"
         dateFormatterDays.dateFormat = "d"
         lblCurrentWeekday.text = dateFormatterWeekday.string(from: date as Date) + "요일"
-        lblCurrentDays.text = dateFormatterDays.string(from: date as Date) + "일"
+        lblCurrentDays.text = dateFormatterDays.string(from: date as Date) +  "일"
         
         
         UIGraphicsBeginImageContext(drawRectangle.frame.size)
@@ -61,7 +61,7 @@ class ViewControllerHome: UIViewController {
         context.setStrokeColor(UIColor.white.cgColor)
         context.setFillColor(UIColor.white.cgColor)
         
-        let rectangle = CGRect(x: 0, y: 0, width: 157, height: 87)
+        let rectangle = CGRect(x: 0, y: 0, width: 157, height: 111)
         context.addRect(rectangle)
         context.fill(rectangle)
         context.strokePath()

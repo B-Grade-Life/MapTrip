@@ -7,18 +7,23 @@
 
 import Foundation
 import GoogleMaps
+import UIKit
 
 class ViewControllerMap: UIViewController {
 
     @IBOutlet var MapView: UIView!
+    @IBOutlet var bottomView: UIView!
     
-    @IBOutlet var ScrollView: UIScrollView!
-    @IBOutlet var viewCorner: UIView!
-    @IBOutlet var viewCorner2: UIView!
+   let searchController = UISearchController()
    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "카테고리 검색"
+        searchBar.searchTextField.backgroundColor = UIColor(red: 251/255, green: 246/255, blue: 237/255, alpha: 1)
+        self.navigationItem.titleView = searchBar
         
         
         // Create a GMSCameraPosition that tells the map to display the
@@ -28,21 +33,18 @@ class ViewControllerMap: UIViewController {
         self.view.addSubview(mapView)
 
         // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 37.5666805, longitude: 126.9784147)
+        let position = CLLocationCoordinate2D(latitude: 37.5666805, longitude: 126.9784147)
+        let marker = GMSMarker(position: position)
         marker.title = "Seoul"
         marker.snippet = "Korea"
         marker.map = mapView
         
         
-        ScrollView.layer.masksToBounds = false
-        ScrollView.layer.cornerRadius = 20
-        ScrollView.clipsToBounds = true
-        viewCorner.layer.masksToBounds = false
-        viewCorner.layer.cornerRadius = 10
-        viewCorner.clipsToBounds = true
-        viewCorner2.layer.masksToBounds = false
-        viewCorner2.layer.cornerRadius = 10
-        viewCorner2.clipsToBounds = true
+       
+        bottomView.layer.masksToBounds = false
+        bottomView.layer.cornerRadius = 20
+        bottomView.clipsToBounds = true
+
   }
+
 }

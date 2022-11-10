@@ -19,6 +19,7 @@
 		5EA0EC4F29068C94006BE75B /* MapTripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0EC4E29068C94006BE75B /* MapTripUITests.swift */; };
 		5EA0EC5129068C94006BE75B /* MapTripUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0EC5029068C94006BE75B /* MapTripUITestsLaunchTests.swift */; };
 		5ECA0C012907D99200D8FA06 /* ViewControllerMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECA0C002907D99200D8FA06 /* ViewControllerMap.swift */; };
+		5EF9C323291CF04A00DE3342 /* ViewControllerMapRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9C322291CF04A00DE3342 /* ViewControllerMapRoute.swift */; };
 		5EFBD7D82913EA6E00C626D7 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBD7D72913EA6E00C626D7 /* ViewControllerHome.swift */; };
 		A514BD87AA99F678EE7FF5AC /* Pods_MapTrip_MapTripUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F43713980909377119D27C9 /* Pods_MapTrip_MapTripUITests.framework */; };
 		E1EA39531A2CEFF9BE9695D5 /* Pods_MapTrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A0EFBA03993288E04BF5CF /* Pods_MapTrip.framework */; };
@@ -63,6 +64,7 @@
 		5EA0EC4E29068C94006BE75B /* MapTripUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTripUITests.swift; sourceTree = "<group>"; };
 		5EA0EC5029068C94006BE75B /* MapTripUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTripUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5ECA0C002907D99200D8FA06 /* ViewControllerMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMap.swift; sourceTree = "<group>"; };
+		5EF9C322291CF04A00DE3342 /* ViewControllerMapRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMapRoute.swift; sourceTree = "<group>"; };
 		5EFBD7D72913EA6E00C626D7 /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
 		5F43713980909377119D27C9 /* Pods_MapTrip_MapTripUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapTrip_MapTripUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92417619B84ADB0CBE64EC84 /* Pods-MapTrip-MapTripUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapTrip-MapTripUITests.release.xcconfig"; path = "Target Support Files/Pods-MapTrip-MapTripUITests/Pods-MapTrip-MapTripUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				5EA0EC2F29068C92006BE75B /* SceneDelegate.swift */,
 				5EA0EC3129068C92006BE75B /* ViewController.swift */,
 				5EA0EC3329068C92006BE75B /* Main.storyboard */,
+				5EF9C322291CF04A00DE3342 /* ViewControllerMapRoute.swift */,
 				5EFBD7D72913EA6E00C626D7 /* ViewControllerHome.swift */,
 				5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */,
 				5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */,
@@ -421,6 +424,7 @@
 				5E288E732910F8B000A247D4 /* ViewControllerProfile.swift in Sources */,
 				5EA0EC3229068C92006BE75B /* ViewController.swift in Sources */,
 				5EFBD7D82913EA6E00C626D7 /* ViewControllerHome.swift in Sources */,
+				5EF9C323291CF04A00DE3342 /* ViewControllerMapRoute.swift in Sources */,
 				5EA0EC2E29068C92006BE75B /* AppDelegate.swift in Sources */,
 				5EA0EC3029068C92006BE75B /* SceneDelegate.swift in Sources */,
 				5ECA0C012907D99200D8FA06 /* ViewControllerMap.swift in Sources */,
