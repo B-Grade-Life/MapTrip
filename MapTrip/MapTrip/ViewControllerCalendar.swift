@@ -29,7 +29,7 @@ class ViewControllerCalendar: UIViewController {
         context.setLineWidth(3.0)
 //        context.setFillColor(UIColor.green.cgColor)
         context.setStrokeColor(red: 99/255, green: 138/255, blue: 102/255, alpha: 1)
-        context.move(to: CGPoint(x: 8, y: 9))
+        context.move(to: CGPoint(x: 8, y: 3))
         context.addLine(to: CGPoint(x: 8, y: 41))
         context.strokePath()
         
