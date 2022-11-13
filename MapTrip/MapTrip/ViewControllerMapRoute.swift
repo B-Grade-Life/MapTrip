@@ -12,6 +12,8 @@ class ViewControllerMapRoute: UIViewController {
     
     @IBOutlet var viewBestRoute: UIView!
     @IBOutlet var viewRoute: UIView!
+    @IBOutlet var mainBoxRadius: UIView!
+    @IBOutlet var boxRadius: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,14 @@ class ViewControllerMapRoute: UIViewController {
         viewRoute.layer.masksToBounds = false
         viewRoute.layer.cornerRadius = 10
         viewRoute.clipsToBounds = true
+        
+        mainBoxRadius.layer.masksToBounds = false
+        mainBoxRadius.layer.cornerRadius = 10
+        mainBoxRadius.clipsToBounds = true
+        
+        boxRadius.layer.masksToBounds = false
+        boxRadius.layer.cornerRadius = 10
+        boxRadius.clipsToBounds = true
     }
 }
 
