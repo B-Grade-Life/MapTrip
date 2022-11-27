@@ -18,7 +18,8 @@ class ViewControllerHome: UIViewController {
     
     @IBOutlet var lblCurrentWeekday: UILabel!
     @IBOutlet var lblCurrentDays: UILabel!
-
+    
+    
     @IBOutlet var drawRectangle: UIImageView!
     
     override func viewDidLoad() {
@@ -52,7 +53,6 @@ class ViewControllerHome: UIViewController {
         lblCurrentWeekday.text = dateFormatterWeekday.string(from: date as Date) + "요일"
         lblCurrentDays.text = dateFormatterDays.string(from: date as Date) +  "일"
         
-        
         UIGraphicsBeginImageContext(drawRectangle.frame.size)
         let context = UIGraphicsGetCurrentContext()!
         
@@ -68,5 +68,14 @@ class ViewControllerHome: UIViewController {
         
         drawRectangle.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+    }
+    @IBAction func addGroupBtn( _sender: UIButton){
+        let alert = UIAlertController(title: "그룹생성", message: "그룹을 생성하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let onAction = UIAlertAction(title: "네", style:UIAlertAction.Style.default)
+        let cancelAction = UIAlertAction(title: "아니요", style: UIAlertAction.Style.default)
+        alert.addAction(onAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
