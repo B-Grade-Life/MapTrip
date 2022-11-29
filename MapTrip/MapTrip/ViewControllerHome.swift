@@ -19,8 +19,10 @@ class ViewControllerHome: UIViewController {
     @IBOutlet var lblCurrentWeekday: UILabel!
     @IBOutlet var lblCurrentDays: UILabel!
     
-    
     @IBOutlet var drawRectangle: UIImageView!
+    
+    var commercialPopUp: PopUp!
+    @IBOutlet var addGroupBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +71,15 @@ class ViewControllerHome: UIViewController {
         drawRectangle.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
-    @IBAction func addGroupBtn( _sender: UIButton){
-        let alert = UIAlertController(title: "그룹생성", message: "그룹을 생성하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-        let onAction = UIAlertAction(title: "네", style:UIAlertAction.Style.default)
-        let cancelAction = UIAlertAction(title: "아니요", style: UIAlertAction.Style.default)
-        alert.addAction(onAction)
-        alert.addAction(cancelAction)
+    
+    @IBAction func addGroupTapped(_ sender: Any) {
         
-        present(alert, animated: true, completion: nil)
+        self.commercialPopUp = PopUp(frame: self.view.frame)
+        self.commercialPopUp.closeBtn.addTarget(self, action: #selector(closeBtnTapped), for: .touchUpInside)
+        self.view.addSubview(commercialPopUp)
     }
+    @objc func closeBtnTapped(){
+        self.commercialPopUp.removeFromSuperview()
+    }
+    
 }
