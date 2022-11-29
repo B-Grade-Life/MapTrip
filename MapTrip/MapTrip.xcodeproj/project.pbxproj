@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0F1AF929362C24001E2FEE /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AF829362C24001E2FEE /* PopUp.swift */; };
+		5E0F1AFB29362C4F001E2FEE /* PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F1AFA29362C4F001E2FEE /* PopUp.xib */; };
 		5E288E732910F8B000A247D4 /* ViewControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */; };
 		5E637139290BD3F400C706D3 /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */; };
 		5EA0EC2E29068C92006BE75B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0EC2D29068C92006BE75B /* AppDelegate.swift */; };
@@ -48,6 +50,8 @@
 		22548248506C3A8F0E8DE49E /* Pods-MapTrip-MapTripUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapTrip-MapTripUITests.debug.xcconfig"; path = "Target Support Files/Pods-MapTrip-MapTripUITests/Pods-MapTrip-MapTripUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		345996173EA4459A2DB30EDA /* Pods-MapTrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapTrip.release.xcconfig"; path = "Target Support Files/Pods-MapTrip/Pods-MapTrip.release.xcconfig"; sourceTree = "<group>"; };
 		52A0EFBA03993288E04BF5CF /* Pods_MapTrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapTrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E0F1AF829362C24001E2FEE /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		5E0F1AFA29362C4F001E2FEE /* PopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUp.xib; sourceTree = "<group>"; };
 		5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfile.swift; sourceTree = "<group>"; };
 		5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 		5EA0EC2A29068C92006BE75B /* MapTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,8 @@
 				5EA0EC3629068C93006BE75B /* Assets.xcassets */,
 				5EA0EC3829068C93006BE75B /* LaunchScreen.storyboard */,
 				5EA0EC3B29068C93006BE75B /* Info.plist */,
+				5E0F1AF829362C24001E2FEE /* PopUp.swift */,
+				5E0F1AFA29362C4F001E2FEE /* PopUp.xib */,
 			);
 			path = MapTrip;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			files = (
 				5EA0EC3A29068C93006BE75B /* LaunchScreen.storyboard in Resources */,
 				5EA0EC3729068C93006BE75B /* Assets.xcassets in Resources */,
+				5E0F1AFB29362C4F001E2FEE /* PopUp.xib in Resources */,
 				5EA0EC3529068C92006BE75B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E288E732910F8B000A247D4 /* ViewControllerProfile.swift in Sources */,
+				5E0F1AF929362C24001E2FEE /* PopUp.swift in Sources */,
 				5EA0EC3229068C92006BE75B /* ViewController.swift in Sources */,
 				5EFBD7D82913EA6E00C626D7 /* ViewControllerHome.swift in Sources */,
 				5EF9C323291CF04A00DE3342 /* ViewControllerMapRoute.swift in Sources */,

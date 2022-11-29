@@ -9,6 +9,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="vJD-CY-nkn">
+            <objects>
+                <viewController id="tgK-io-qXG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fYk-XQ-IoK">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="czz-fb-5u6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9eg-rz-o46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="-1863"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zt7-Gx-LJm">
             <objects>
@@ -195,6 +210,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addGroupTapped:" destination="YmO-ul-wzj" eventType="touchUpInside" id="eGh-AN-FUL"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-dO-e1l">
                                 <rect key="frame" x="16" y="320" width="169" height="156"/>
@@ -284,6 +302,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addGroupBtn" destination="DIX-UA-81R" id="10l-Kq-mB0"/>
                         <outlet property="contentCornerView" destination="rR5-dO-e1l" id="VOq-Ba-DLJ"/>
                         <outlet property="contentCornerView2" destination="1D4-OE-cqi" id="ulP-zq-r4z"/>
                         <outlet property="contentCornerView3" destination="taw-ja-850" id="XtH-0H-Dvi"/>
@@ -346,7 +365,7 @@
                                 <color key="backgroundColor" name="Main Color"/>
                             </view>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="Pz1-pb-pJv">
-                                <rect key="frame" x="35" y="129" width="317" height="300"/>
+                                <rect key="frame" x="35" y="129" width="316" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                         </subviews>
@@ -357,7 +376,7 @@
                     <navigationItem key="navigationItem" id="sbq-Bq-Ngz">
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="zAF-OI-eb9">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="DT3-gL-ef0">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="DT3-gL-ef0">
                                     <rect key="frame" x="327" y="5" width="47" height="34.333333333333336"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
