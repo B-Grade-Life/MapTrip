@@ -18,5 +18,27 @@ class ViewControllerProfile: UIViewController {
         sampleImageView.layer.masksToBounds = false
         sampleImageView.layer.cornerRadius = sampleImageView.frame.height/2
         sampleImageView.clipsToBounds = true
+        
+        tapGasture()
+    }
+    //MARK: -Add TapGasture in ImageView
+    func tapGasture(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        sampleImageView.isUserInteractionEnabled = true
+        sampleImageView.addGestureRecognizer(tap)
+    }
+    @IBAction func imageTapped(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+    }
+}
+extension ViewControllerProfile: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        sampleImageView.image = info[.originalImage] as? UIImage
+        dismiss(animated:true, completion: nil)
     }
 }
