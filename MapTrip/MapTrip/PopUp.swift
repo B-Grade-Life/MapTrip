@@ -9,23 +9,28 @@ import UIKit
 
 class PopUp: UIView {
 
+    @IBOutlet var popupView: UIView!
     @IBOutlet var closeBtn: UIButton!
     @IBOutlet var addBtn: UIButton!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         xibSetup(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         
+        popupView.layer.masksToBounds = false
+        popupView.layer.cornerRadius = 20
+        popupView.clipsToBounds = true
         closeBtn.layer.masksToBounds = false
         closeBtn.layer.cornerRadius = 10
         closeBtn.clipsToBounds = true
         addBtn.layer.masksToBounds = false
         addBtn.layer.cornerRadius = 10
         addBtn.clipsToBounds = true
-        
     }
     
     func xibSetup(frame: CGRect){
@@ -41,5 +46,5 @@ class PopUp: UIView {
         
         return view!
     }
-
+    
 }

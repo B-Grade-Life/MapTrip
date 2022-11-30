@@ -19,10 +19,8 @@ class ViewControllerHome: UIViewController {
     @IBOutlet var lblCurrentWeekday: UILabel!
     @IBOutlet var lblCurrentDays: UILabel!
     
-    @IBOutlet var drawRectangle: UIImageView!
-    
     var commercialPopUp: PopUp!
-    @IBOutlet var addGroupBtn: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,26 +52,9 @@ class ViewControllerHome: UIViewController {
         dateFormatterDays.dateFormat = "d"
         lblCurrentWeekday.text = dateFormatterWeekday.string(from: date as Date) + "요일"
         lblCurrentDays.text = dateFormatterDays.string(from: date as Date) +  "일"
-        
-        UIGraphicsBeginImageContext(drawRectangle.frame.size)
-        let context = UIGraphicsGetCurrentContext()!
-        
-        //사각형 그리고 색채우기
-        context.setLineWidth(1.0)
-        context.setStrokeColor(UIColor.white.cgColor)
-        context.setFillColor(UIColor.white.cgColor)
-        
-        let rectangle = CGRect(x: 0, y: 0, width: 157, height: 111)
-        context.addRect(rectangle)
-        context.fill(rectangle)
-        context.strokePath()
-        
-        drawRectangle.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
     }
     
     @IBAction func addGroupTapped(_ sender: Any) {
-        
         self.commercialPopUp = PopUp(frame: self.view.frame)
         self.commercialPopUp.closeBtn.addTarget(self, action: #selector(closeBtnTapped), for: .touchUpInside)
         self.view.addSubview(commercialPopUp)
