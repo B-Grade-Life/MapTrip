@@ -9,10 +9,12 @@ import Foundation
 import GoogleMaps
 import UIKit
 
-class ViewControllerMap: UIViewController {
+class ViewControllerMap: UIViewController, GMSMapViewDelegate {
 
     @IBOutlet var MapView: UIView!
-    @IBOutlet var bottomView: UIView!
+//    @IBOutlet var bottomView: UIView!
+    
+    var mapView: GMSMapView!
     
    let searchController = UISearchController()
     
@@ -22,6 +24,8 @@ class ViewControllerMap: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.mapView.delegate = self
         
         let searchBar = UISearchBar()
         searchBar.placeholder = "카테고리 검색"
@@ -35,31 +39,25 @@ class ViewControllerMap: UIViewController {
             self.lon = data.lon
             print(self.lat, self.lon)
         }
-        
+
+  }
+    override func loadView() {
+        super.loadView()
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon), zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: MapView.frame, camera: camera)
+        mapView = GMSMapView.map(withFrame: MapView.frame, camera: camera)
         self.view.addSubview(mapView)
-
-        
-        // Creates a marker in the center of the map.
-        let position = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
-        let marker = GMSMarker(position: position)
-        marker.title = "Seoul"
-        marker.snippet = "Korea"
-        marker.map = mapView
-        
-        
-        
-        
-       
-        bottomView.layer.masksToBounds = false
-        bottomView.layer.cornerRadius = 20
-        bottomView.clipsToBounds = true
-
-  }
-
+      }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+      print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+      let marker = GMSMarker()
+      marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+      marker.title = "Sydney"
+      marker.snippet = "Australia"
+      marker.map = mapView
+    }
 }
 
 struct Response: Codable {
