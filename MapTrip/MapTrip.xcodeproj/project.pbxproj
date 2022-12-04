@@ -10,6 +10,7 @@
 		5E0F1AF929362C24001E2FEE /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AF829362C24001E2FEE /* PopUp.swift */; };
 		5E0F1AFB29362C4F001E2FEE /* PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F1AFA29362C4F001E2FEE /* PopUp.xib */; };
 		5E288E732910F8B000A247D4 /* ViewControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */; };
+		5E38EBF8293CD0440054A7A2 /* ViewControllerNewPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */; };
 		5E637139290BD3F400C706D3 /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */; };
 		5EA0EC2E29068C92006BE75B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0EC2D29068C92006BE75B /* AppDelegate.swift */; };
 		5EA0EC3029068C92006BE75B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0EC2F29068C92006BE75B /* SceneDelegate.swift */; };
@@ -53,6 +54,7 @@
 		5E0F1AF829362C24001E2FEE /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		5E0F1AFA29362C4F001E2FEE /* PopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUp.xib; sourceTree = "<group>"; };
 		5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfile.swift; sourceTree = "<group>"; };
+		5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewPlan.swift; sourceTree = "<group>"; };
 		5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 		5EA0EC2A29068C92006BE75B /* MapTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA0EC2D29068C92006BE75B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				5EF9C322291CF04A00DE3342 /* ViewControllerMapRoute.swift */,
 				5EFBD7D72913EA6E00C626D7 /* ViewControllerHome.swift */,
 				5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */,
+				5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */,
 				5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */,
 				5ECA0C002907D99200D8FA06 /* ViewControllerMap.swift */,
 				5EA0EC3629068C93006BE75B /* Assets.xcassets */,
@@ -436,6 +439,7 @@
 				5EA0EC2E29068C92006BE75B /* AppDelegate.swift in Sources */,
 				5EA0EC3029068C92006BE75B /* SceneDelegate.swift in Sources */,
 				5ECA0C012907D99200D8FA06 /* ViewControllerMap.swift in Sources */,
+				5E38EBF8293CD0440054A7A2 /* ViewControllerNewPlan.swift in Sources */,
 				5E637139290BD3F400C706D3 /* ViewControllerCalendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

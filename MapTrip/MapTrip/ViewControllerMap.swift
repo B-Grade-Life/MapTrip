@@ -54,8 +54,8 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate {
       print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
       let marker = GMSMarker()
       marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-      marker.title = "Sydney"
-      marker.snippet = "Australia"
+      marker.title = "California"
+      marker.snippet = "USA"
       marker.map = mapView
     }
 }
