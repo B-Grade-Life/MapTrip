@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class ViewControllerHome: UIViewController {
-
     @IBOutlet var cornerView: UIView!
     @IBOutlet var scheduleCornerView: UIView!
     @IBOutlet var contentCornerView: UIView!
@@ -20,8 +19,7 @@ class ViewControllerHome: UIViewController {
     @IBOutlet var lblCurrentDays: UILabel!
     
     var commercialPopUp: PopUp!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -59,8 +57,12 @@ class ViewControllerHome: UIViewController {
         self.commercialPopUp.closeBtn.addTarget(self, action: #selector(closeBtnTapped), for: .touchUpInside)
         self.view.addSubview(commercialPopUp)
     }
+
     @objc func closeBtnTapped(){
         self.commercialPopUp.removeFromSuperview()
     }
-    
+
+    @IBAction func btnMoveMap(_ sender: UIButton) {
+        tabBarController?.selectedIndex = 2
+    }
 }
