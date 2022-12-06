@@ -216,7 +216,7 @@
                     <tabBarItem key="tabBarItem" title="" image="Map" selectedImage="Active Map" id="cVN-hu-vjy"/>
                     <navigationItem key="navigationItem" id="WZd-EN-8fw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5l-UV-EC8">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -355,7 +355,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <segue destination="cRB-KA-0sx" kind="show" id="bLJ-nr-o8m"/>
+                                            <action selector="btnMoveMap:" destination="YmO-ul-wzj" eventType="touchUpInside" id="v9G-Yx-uli"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LA" translatesAutoresizingMaskIntoConstraints="NO" id="nIm-4L-DQ9">
@@ -381,6 +381,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="btnMoveMap:" destination="YmO-ul-wzj" eventType="touchUpInside" id="lBM-sl-WuC"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SanFrancisco" translatesAutoresizingMaskIntoConstraints="NO" id="KUt-6D-NA6">
                                         <rect key="frame" x="0.0" y="0.0" width="169" height="119"/>
@@ -653,9 +656,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyJ-0o-fpg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyJ-0o-fpg">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEA-Lk-9SP">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
@@ -823,13 +825,18 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="761" id="gOp-z7-1SE"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="QEA-Lk-9SP" firstAttribute="bottom" secondItem="U6G-sQ-iZG" secondAttribute="bottom" id="G2P-uj-1hK"/>
                                     <constraint firstItem="QEA-Lk-9SP" firstAttribute="leading" secondItem="kx1-Ng-QVb" secondAttribute="leading" id="OWL-7V-IS6"/>
                                     <constraint firstItem="QEA-Lk-9SP" firstAttribute="top" secondItem="kx1-Ng-QVb" secondAttribute="top" id="ShR-dn-8nr"/>
                                     <constraint firstItem="QEA-Lk-9SP" firstAttribute="bottom" secondItem="kx1-Ng-QVb" secondAttribute="bottom" constant="897" id="ipB-D5-SM2"/>
                                     <constraint firstItem="QEA-Lk-9SP" firstAttribute="trailing" secondItem="kx1-Ng-QVb" secondAttribute="trailing" constant="390" id="mb4-Kl-JgA"/>
+                                    <constraint firstItem="QEA-Lk-9SP" firstAttribute="centerX" secondItem="gyJ-0o-fpg" secondAttribute="centerX" id="uWz-Sb-4pc"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="kx1-Ng-QVb"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="U6G-sQ-iZG"/>
@@ -837,6 +844,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mJd-bO-z9q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gyJ-0o-fpg" firstAttribute="top" secondItem="mJd-bO-z9q" secondAttribute="top" id="ErD-vd-xlT"/>
+                            <constraint firstItem="gyJ-0o-fpg" firstAttribute="centerX" secondItem="RRB-hy-XqN" secondAttribute="centerX" id="ky6-x8-VPN"/>
+                            <constraint firstItem="gyJ-0o-fpg" firstAttribute="leading" secondItem="mJd-bO-z9q" secondAttribute="leading" id="lke-Hv-UkH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QKM-Re-iZC"/>
                     <connections>
@@ -855,7 +867,7 @@
             <objects>
                 <viewController id="77v-ge-aCp" customClass="ViewControllerMap" customModule="MapTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qsH-ob-UXz">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzG-N7-uxw">
@@ -1117,8 +1129,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ljE-wm-Ijc"/>
-        <segue reference="bLJ-nr-o8m"/>
+        <segue reference="iYN-wn-Kwq"/>
         <segue reference="XPs-fR-hiI"/>
     </inferredMetricsTieBreakers>
     <resources>
