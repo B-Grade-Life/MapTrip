@@ -16,17 +16,10 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
     
     var selectedDate = Date()
     var totalSquares = [String]()
-    
-//    let date = NSDate()
-//    let dateFormatter = DateFormatter()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-//        dateFormatter.dateFormat = "MMM"
-//        lblCurrentMonth.text = dateFormatter.string(from: date as Date)
         
         cornerView.layer.masksToBounds = false
         cornerView.layer.cornerRadius = 20
@@ -34,7 +27,6 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         
         setCellsView()
         setMonthView()
-       
     }
     
     func setCellsView()

@@ -10,16 +10,14 @@ import UIKit
 class GroupCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var imageView: UIImageView!
-    static let identifier = "GroupCollectionViewCell"
+    @IBOutlet var lblGrouopTitle: UILabel!
+//    @IBOutlet var collectionViewCell: UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    public func configure(with image: UIImage){
-        imageView.image = image
-    }
-    static func nib() -> UINib {
-        return UINib(nibName: "GroupCollectionViewCell", bundle: nil)
+    func setup(with group: GroupList){
+//        collectionViewCell.layer.masksToBounds = false
+//        collectionViewCell.layer.cornerRadius = 15
+//        collectionViewCell.clipsToBounds = true
+        imageView.image = group.image
+        lblGrouopTitle.text = group.title
     }
 }
