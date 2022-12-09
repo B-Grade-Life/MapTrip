@@ -8,20 +8,15 @@
 import Foundation
 import UIKit
 
-class ViewControllerHome: UIViewController {
+class ViewControllerHome: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet var cornerView: UIView!
     @IBOutlet var scheduleCornerView: UIView!
     @IBOutlet var lblCurrentWeekday: UILabel!
     @IBOutlet var lblCurrentDays: UILabel!
     
-    
     @IBOutlet var collectionView: UICollectionView!
     
-//    @IBOutlet var contentCornerView: UIView!
-//    @IBOutlet var contentCornerView2: UIView!
-//    @IBOutlet var contentCornerView3: UIView!
-    
-   
     
     var commercialPopUp: PopUp!
 
@@ -32,36 +27,25 @@ class ViewControllerHome: UIViewController {
         let dateFormatterWeekday = DateFormatter()
         let dateFormatterDays = DateFormatter()
         
+        //corner round
         cornerView.layer.masksToBounds = false
         cornerView.layer.cornerRadius = 20
         cornerView.clipsToBounds = true
-        
         scheduleCornerView.layer.masksToBounds = false
         scheduleCornerView.layer.cornerRadius = 5
         scheduleCornerView.clipsToBounds = true
         
-//        contentCornerView.layer.masksToBounds = false
-//        contentCornerView.layer.cornerRadius = 15
-//        contentCornerView.clipsToBounds = true
-//        contentCornerView2.layer.masksToBounds = false
-//        contentCornerView2.layer.cornerRadius = 15
-//        contentCornerView2.clipsToBounds = true
-//        contentCornerView3.layer.masksToBounds = false
-//        contentCornerView3.layer.cornerRadius = 15
-//        contentCornerView3.clipsToBounds = true
-        
-
+        //Current Days
         dateFormatterWeekday.dateFormat = "EEE"
         dateFormatterDays.dateFormat = "d"
         lblCurrentWeekday.text = dateFormatterWeekday.string(from: date as Date) + "요일"
         lblCurrentDays.text = dateFormatterDays.string(from: date as Date) +  "일"
         
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 169, height: 156)
-        collectionView.collectionViewLayout = layout
-        collectionView.register(GroupCollectionViewCell.nib(), forCellWithReuseIdentifier: GroupCollectionViewCell.identifier)
-        collectionView.delegate = self
+        //Group
         collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
     }
     
     @IBAction func addGroupTapped(_ sender: Any) {
@@ -82,33 +66,30 @@ class ViewControllerHome: UIViewController {
     @IBAction func btnMoveMap(_ sender: UIButton) {
         tabBarController?.selectedIndex = 2
     }
-}
-
-extension ViewControllerHome: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
-        print("You tapped me")
-    }
     
-}
-extension ViewControllerHome: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
+    // Group collectionVeiw
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCollectionViewCell.identifier, for: indexPath) as! GroupCollectionViewCell
         
-        cell.configure(with: UIImage(named: "LA")!)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCollectionViewCell", for: indexPath) as! GroupCollectionViewCell
         
+        cell.setup(with: Groups[indexPath.row])
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return Groups.count
+    }
     
-    
-}
-extension ViewControllerHome: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 169, height: 156)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(Groups[indexPath.row])
+    }
+    
 }
+
+
+
+
