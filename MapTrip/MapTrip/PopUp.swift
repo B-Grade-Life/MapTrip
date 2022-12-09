@@ -10,6 +10,7 @@ import UIKit
 class PopUp: UIView {
 
     @IBOutlet var popupView: UIView!
+    @IBOutlet var titleTextField: UITextField!
     @IBOutlet var closeBtn: UIButton!
     @IBOutlet var addBtn: UIButton!
     
