@@ -16,6 +16,7 @@ class ViewControllerMapRoute: UIViewController {
     @IBOutlet var boxRadius: UIView!
     
     var commercialPopUp: NewPlanPopUp!
+    var commercialPopUp2: NewPlanPopUp!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +45,25 @@ class ViewControllerMapRoute: UIViewController {
         self.view.addSubview(commercialPopUp)
     }
     
+    @IBAction func addPlan2(_ sender: Any) {
+        self.commercialPopUp2 = NewPlanPopUp(frame: self.view.frame)
+        self.commercialPopUp2.closeBtn.addTarget(self, action: #selector(closeBtnTapped2), for: .touchUpInside)
+        self.commercialPopUp2.addBtn.addTarget(self, action: #selector(closeBtnTapped2), for: .touchUpInside)
+        self.view.addSubview(commercialPopUp)
+    }
+    
+    
     @objc func closeBtnTapped(){
         self.commercialPopUp.removeFromSuperview()
     }
     @objc func addBtnTapped(){
         self.commercialPopUp.removeFromSuperview()
+    }
+    @objc func closeBtnTapped2(){
+        self.commercialPopUp2.removeFromSuperview()
+    }
+    @objc func addBtnTapped2(){
+        self.commercialPopUp2.removeFromSuperview()
     }
 }
 

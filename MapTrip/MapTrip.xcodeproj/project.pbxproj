@@ -15,6 +15,8 @@
 		5E38EBF8293CD0440054A7A2 /* ViewControllerNewPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */; };
 		5E38EBFA2941E3080054A7A2 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBF92941E3080054A7A2 /* CalendarCell.swift */; };
 		5E38EBFC2941E76E0054A7A2 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBFB2941E76E0054A7A2 /* CalendarHelper.swift */; };
+		5E5EA4362944E50A003434A2 /* NewPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5EA4352944E50A003434A2 /* NewPlanTableViewCell.swift */; };
+		5E5EA4382944EBDE003434A2 /* PlanList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5EA4372944EBDE003434A2 /* PlanList.swift */; };
 		5E637139290BD3F400C706D3 /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */; };
 		5E6AE0AE29436D09008C1B04 /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6AE0AC29436D09008C1B04 /* GroupCollectionViewCell.swift */; };
 		5E6AE0B129438388008C1B04 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6AE0B029438388008C1B04 /* GroupList.swift */; };
@@ -65,6 +67,8 @@
 		5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewPlan.swift; sourceTree = "<group>"; };
 		5E38EBF92941E3080054A7A2 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		5E38EBFB2941E76E0054A7A2 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		5E5EA4352944E50A003434A2 /* NewPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanTableViewCell.swift; sourceTree = "<group>"; };
+		5E5EA4372944EBDE003434A2 /* PlanList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanList.swift; sourceTree = "<group>"; };
 		5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 		5E6AE0AC29436D09008C1B04 /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E6AE0B029438388008C1B04 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupList.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				5EA0EC2F29068C92006BE75B /* SceneDelegate.swift */,
 				5EA0EC3129068C92006BE75B /* ViewController.swift */,
 				5EA0EC3329068C92006BE75B /* Main.storyboard */,
+				5E5EA4352944E50A003434A2 /* NewPlanTableViewCell.swift */,
 				5E38EBFB2941E76E0054A7A2 /* CalendarHelper.swift */,
 				5EF9C322291CF04A00DE3342 /* ViewControllerMapRoute.swift */,
 				5E25AF852944BEF20041BA0F /* NewPlanPopUp.swift */,
@@ -166,6 +171,7 @@
 				5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */,
 				5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */,
 				5E637138290BD3F400C706D3 /* ViewControllerCalendar.swift */,
+				5E5EA4372944EBDE003434A2 /* PlanList.swift */,
 				5E38EBF92941E3080054A7A2 /* CalendarCell.swift */,
 				5E6AE0AC29436D09008C1B04 /* GroupCollectionViewCell.swift */,
 				5ECA0C002907D99200D8FA06 /* ViewControllerMap.swift */,
@@ -463,8 +469,10 @@
 				5E38EBF8293CD0440054A7A2 /* ViewControllerNewPlan.swift in Sources */,
 				5E25AF862944BEF20041BA0F /* NewPlanPopUp.swift in Sources */,
 				5E6AE0AE29436D09008C1B04 /* GroupCollectionViewCell.swift in Sources */,
+				5E5EA4362944E50A003434A2 /* NewPlanTableViewCell.swift in Sources */,
 				5E637139290BD3F400C706D3 /* ViewControllerCalendar.swift in Sources */,
 				5E6AE0B129438388008C1B04 /* GroupList.swift in Sources */,
+				5E5EA4382944EBDE003434A2 /* PlanList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
