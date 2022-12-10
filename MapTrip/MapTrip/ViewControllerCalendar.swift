@@ -72,6 +72,7 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         
         cell.dayOfMonth.text =  totalSquares[indexPath.item]
         
+        
         return cell
     }
 

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewControllerNewPlan: UIViewController {
     
+    
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var contentsView: UIView!
     @IBOutlet var switchBtn: UISwitch!
@@ -28,6 +29,8 @@ class ViewControllerNewPlan: UIViewController {
         contentsView.layer.masksToBounds = false
         contentsView.layer.cornerRadius = 15
         contentsView.clipsToBounds = true
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.systemGray3
     }
     
     @IBAction func switchDidChange(_ sender: UISwitch) {
@@ -44,4 +47,5 @@ class ViewControllerNewPlan: UIViewController {
             endDatePicker.isHidden = true
         }
     }
+
 }

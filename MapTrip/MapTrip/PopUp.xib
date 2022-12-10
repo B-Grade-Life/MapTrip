@@ -75,6 +75,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="addBtn" destination="pSU-dG-lIO" id="H5G-cm-fg9"/>
                 <outlet property="closeBtn" destination="Cor-Jo-Z8Y" id="Ovp-7E-ion"/>
             </connections>
             <point key="canvasLocation" x="64.885496183206101" y="-11.267605633802818"/>
