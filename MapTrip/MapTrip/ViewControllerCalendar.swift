@@ -8,14 +8,17 @@
 import Foundation
 import UIKit
 
-class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet var cornerView: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var lblCurrentMonth: UILabel!
+    @IBOutlet var tableView: UITableView!
     
+    //calednar
     var selectedDate = Date()
     var totalSquares = [String]()
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +28,12 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         cornerView.layer.cornerRadius = 20
         cornerView.clipsToBounds = true
         
+        //calendar
         setCellsView()
         setMonthView()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setCellsView()
@@ -92,4 +99,25 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
     {
         return false
     }
+    
+    //table
+    override func viewDidLayoutSubviews() {
+        tableView.frame = tableView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewPlanTableViewCell", for: indexPath) as! NewPlanTableViewCell
+        
+        cell.setup(with: tableData[indexPath.row])
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 77
+    }
+    
+    
 }
