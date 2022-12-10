@@ -21,6 +21,7 @@ class ViewControllerProfile: UIViewController {
         
         tapGasture()
     }
+    
     //MARK: -Add TapGasture in ImageView
     func tapGasture(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))

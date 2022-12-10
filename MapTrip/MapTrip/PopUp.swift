@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUp: UIView {
+class PopUp: UIView, UITextFieldDelegate {
 
     @IBOutlet var popupView: UIView!
     @IBOutlet var titleTextField: UITextField!
@@ -32,8 +32,13 @@ class PopUp: UIView {
         addBtn.layer.masksToBounds = false
         addBtn.layer.cornerRadius = 10
         addBtn.clipsToBounds = true
+        
+        titleTextField.becomeFirstResponder()
+        titleTextField.delegate = self
+    
     }
     
+    // PopUP
     func xibSetup(frame: CGRect){
         let view = loadXid()
         view.frame = frame
@@ -47,5 +52,14 @@ class PopUp: UIView {
         
         return view!
     }
-    
+
+    // text
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        let text = textField.text
+        print("\(text)")
+        
+        return true
+    }
 }
