@@ -18,6 +18,15 @@ class ViewControllerMapRoute: UIViewController {
     var commercialPopUp: NewPlanPopUp!
     var commercialPopUp2: NewPlanPopUp!
     
+    struct State{
+        let recommendRoute: String
+        let recommendLocation: String
+    }
+    let States: [State] = [
+        State(recommendRoute: "1,234m", recommendLocation: "LA 게티센터 - 파머스마켓 - LA 유니버셜스튜디오"),
+        State(recommendRoute: "2,345", recommendLocation: "LA 게티센터 - LA 유니버셜스튜디오 - 파머스마켓")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -16,5 +16,5 @@ struct table{
 let tableData: [table] = [
     table(title: "일정", date: "2022년 12월 05일 - 2022년 12월 07일"),
     table(title: "미팅", date: "2022년 12월 13일")
-      ]
+]
       
