@@ -9,28 +9,41 @@ import Foundation
 import GoogleMaps
 import UIKit
 
-class ViewControllerMap: UIViewController, GMSMapViewDelegate {
+class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelegate {
 
     @IBOutlet var MapView: UIView!
 //    @IBOutlet var bottomView: UIView!
     
     var mapView: GMSMapView!
     
-   let searchController = UISearchController()
+    let searchBar = UISearchBar()
     
    @Published private (set) var lat: Float = 37.25
    @Published private (set) var lon: Float = -119.9
+    var category: String = "Cafe"
     
+    struct State{
+        let title: String
+        let lon: CLLocationDegrees
+        let lat: CLLocationDegrees
+    }
+    let States: [State] = [
+        State(title: "California", lon: 36.77, lat: -119.42),
+        State(title: "Los Angeles", lon: 34.05, lat: -118.2),
+        State(title: "SanFrancisco", lon: 37.77, lat: -122.41),
+        State(title: "San Diago", lon: 32.72, lat: -117.16)
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         self.mapView.delegate = self
         
-        let searchBar = UISearchBar()
+        //searchBar
         searchBar.placeholder = "카테고리 검색"
         searchBar.searchTextField.backgroundColor = UIColor(red: 251/255, green: 246/255, blue: 237/255, alpha: 1)
         self.navigationItem.titleView = searchBar
+        searchBar.delegate = self
         
         
         requestPost(url: "http://192.168.70.192:5642/map/marker", method: "POST", param: ["token":"test"])
@@ -39,8 +52,23 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate {
             self.lon = data.lon
             print(self.lat, self.lon)
         }
-
+        
+        for state in States{
+            let stateMarker = GMSMarker()
+            stateMarker.position = CLLocationCoordinate2D(latitude: state.lat, longitude: state.lon)
+            stateMarker.title = state.title
+            stateMarker.opacity = 0.7
+            stateMarker.map = mapView
+        }
+        
   }
+   
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        print(searchText, self.lat, self.lon, self.category)
+    }
+    
+    //mapView
     override func loadView() {
         super.loadView()
         // Create a GMSCameraPosition that tells the map to display the

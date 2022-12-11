@@ -12,6 +12,7 @@
 		5E25AF862944BEF20041BA0F /* NewPlanPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E25AF852944BEF20041BA0F /* NewPlanPopUp.swift */; };
 		5E25AF8A2944C1440041BA0F /* NewPlanPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E25AF892944C1440041BA0F /* NewPlanPopUp.xib */; };
 		5E288E732910F8B000A247D4 /* ViewControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */; };
+		5E3710F229460871006679F1 /* SampleMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3710F129460871006679F1 /* SampleMarker.swift */; };
 		5E38EBF8293CD0440054A7A2 /* ViewControllerNewPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */; };
 		5E38EBFA2941E3080054A7A2 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBF92941E3080054A7A2 /* CalendarCell.swift */; };
 		5E38EBFC2941E76E0054A7A2 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38EBFB2941E76E0054A7A2 /* CalendarHelper.swift */; };
@@ -64,6 +65,7 @@
 		5E25AF852944BEF20041BA0F /* NewPlanPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanPopUp.swift; sourceTree = "<group>"; };
 		5E25AF892944C1440041BA0F /* NewPlanPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPlanPopUp.xib; sourceTree = "<group>"; };
 		5E288E722910F8B000A247D4 /* ViewControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfile.swift; sourceTree = "<group>"; };
+		5E3710F129460871006679F1 /* SampleMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMarker.swift; sourceTree = "<group>"; };
 		5E38EBF7293CD0440054A7A2 /* ViewControllerNewPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewPlan.swift; sourceTree = "<group>"; };
 		5E38EBF92941E3080054A7A2 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		5E38EBFB2941E76E0054A7A2 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				5E38EBF92941E3080054A7A2 /* CalendarCell.swift */,
 				5E6AE0AC29436D09008C1B04 /* GroupCollectionViewCell.swift */,
 				5ECA0C002907D99200D8FA06 /* ViewControllerMap.swift */,
+				5E3710F129460871006679F1 /* SampleMarker.swift */,
 				5EA0EC3629068C93006BE75B /* Assets.xcassets */,
 				5EA0EC3829068C93006BE75B /* LaunchScreen.storyboard */,
 				5EA0EC3B29068C93006BE75B /* Info.plist */,
@@ -457,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E288E732910F8B000A247D4 /* ViewControllerProfile.swift in Sources */,
+				5E3710F229460871006679F1 /* SampleMarker.swift in Sources */,
 				5E38EBFC2941E76E0054A7A2 /* CalendarHelper.swift in Sources */,
 				5E0F1AF929362C24001E2FEE /* PopUp.swift in Sources */,
 				5EA0EC3229068C92006BE75B /* ViewController.swift in Sources */,

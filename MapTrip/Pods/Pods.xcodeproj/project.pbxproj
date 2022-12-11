@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = GoogleMaps;
+			productName = GoogleMaps;
 		};
 /* End PBXAggregateTarget section */
 
@@ -62,7 +63,7 @@
 		173FC07CB976007800D01D9C9142F33F /* Pods-MapTrip-MapTripUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapTrip-MapTripUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		38E1F877BAD27EF6D2E4F44ECD1D79AA /* Pods-MapTrip-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MapTrip-acknowledgements.markdown"; sourceTree = "<group>"; };
 		48198421EB51139B5483A37A25071396 /* Pods-MapTrip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MapTrip-dummy.m"; sourceTree = "<group>"; };
-		511A7047C4A7D2317090CC4CC6209B41 /* Pods-MapTrip */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MapTrip"; path = Pods_MapTrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		511A7047C4A7D2317090CC4CC6209B41 /* Pods_MapTrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapTrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD026CCDA1FF581F7C1D6DBE534A01C /* Pods-MapTripTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapTripTests.release.xcconfig"; sourceTree = "<group>"; };
 		63CB772C3447516460F7E6DF5C635C47 /* Pods-MapTrip-MapTripUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MapTrip-MapTripUITests-dummy.m"; sourceTree = "<group>"; };
 		6AB6CB511A6F7C8135D34540ADDC7787 /* Pods-MapTripTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MapTripTests-dummy.m"; sourceTree = "<group>"; };
@@ -78,7 +79,7 @@
 		92373553CB0AE6E721DF0B1A6134977C /* Pods-MapTrip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapTrip-Info.plist"; sourceTree = "<group>"; };
 		9262B02A27E283A07FE69FA651377932 /* Pods-MapTrip-MapTripUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapTrip-MapTripUITests.release.xcconfig"; sourceTree = "<group>"; };
 		959CA0136D7BBC02C8F90B4434B76DEC /* Pods-MapTripTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MapTripTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A6812B166B33028069A3A41A7CF0BEEA /* Pods-MapTrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapTrip.release.xcconfig"; sourceTree = "<group>"; };
 		AABE3D21F0BE384435A5D7C08A8FD5BB /* GoogleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.debug.xcconfig; sourceTree = "<group>"; };
 		C32ED89BC254092B6EF0E39BB71E0190 /* Pods-MapTripTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapTripTests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 				387015716759109261086A8C0CA736F5 /* Maps */,
 				9601491F11C5653D98D1EB5DF2155DFE /* Support Files */,
 			);
-			name = GoogleMaps;
 			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
@@ -180,7 +180,7 @@
 		533B986E8B85512CD3CA9500760DDBEC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				511A7047C4A7D2317090CC4CC6209B41 /* Pods-MapTrip */,
+				511A7047C4A7D2317090CC4CC6209B41 /* Pods_MapTrip.framework */,
 				72B537F2E595BA866F3080E25C4AFEF3 /* Pods-MapTrip-MapTripUITests */,
 				0217D74B21FB756BA3A5E312CDE6B53F /* Pods-MapTripTests */,
 			);
@@ -374,7 +374,7 @@
 			);
 			name = "Pods-MapTrip";
 			productName = Pods_MapTrip;
-			productReference = 511A7047C4A7D2317090CC4CC6209B41 /* Pods-MapTrip */;
+			productReference = 511A7047C4A7D2317090CC4CC6209B41 /* Pods_MapTrip.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
