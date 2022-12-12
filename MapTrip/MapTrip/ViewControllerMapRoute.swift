@@ -10,21 +10,24 @@ import UIKit
 
 class ViewControllerMapRoute: UIViewController {
     
+    @IBOutlet var routeTableView: UITableView!
+    
     @IBOutlet var viewBestRoute: UIView!
     @IBOutlet var viewRoute: UIView!
-    @IBOutlet var mainBoxRadius: UIView!
-    @IBOutlet var boxRadius: UIView!
+   
+    @IBOutlet var box1: UIImageView!
+    @IBOutlet var box2: UIImageView!
     
     var commercialPopUp: NewPlanPopUp!
     var commercialPopUp2: NewPlanPopUp!
-    
-    struct State{
+
+    struct Route{
         let recommendRoute: String
-        let recommendLocation: String
+        let recommendPlace: String
     }
-    let States: [State] = [
-        State(recommendRoute: "1,234m", recommendLocation: "LA 게티센터 - 파머스마켓 - LA 유니버셜스튜디오"),
-        State(recommendRoute: "2,345", recommendLocation: "LA 게티센터 - LA 유니버셜스튜디오 - 파머스마켓")
+    let Routes: [Route] = [
+        Route(recommendRoute: "1,234m", recommendPlace: "LA 게티센터 ➜ 파머스마켓 ➜ LA 유니버셜스튜디오"),
+        Route(recommendRoute: "2,345m", recommendPlace: "LA 게티센터 ➜ LA 유니버셜스튜디오 ➜ 파머스마켓")
     ]
     
     override func viewDidLoad() {
@@ -33,18 +36,16 @@ class ViewControllerMapRoute: UIViewController {
         viewBestRoute.layer.masksToBounds = false
         viewBestRoute.layer.cornerRadius = 10
         viewBestRoute.clipsToBounds = true
-        
         viewRoute.layer.masksToBounds = false
         viewRoute.layer.cornerRadius = 10
         viewRoute.clipsToBounds = true
         
-        mainBoxRadius.layer.masksToBounds = false
-        mainBoxRadius.layer.cornerRadius = 10
-        mainBoxRadius.clipsToBounds = true
-        
-        boxRadius.layer.masksToBounds = false
-        boxRadius.layer.cornerRadius = 10
-        boxRadius.clipsToBounds = true
+        box1.layer.masksToBounds = false
+        box1.layer.cornerRadius = 10
+        box1.clipsToBounds = true
+        box2.layer.masksToBounds = false
+        box2.layer.cornerRadius = 10
+        box2.clipsToBounds = true
     }
   
     @IBAction func addPlan(_ sender: Any) {

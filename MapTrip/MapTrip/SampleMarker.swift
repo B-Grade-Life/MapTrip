@@ -10,13 +10,12 @@ import GoogleMaps
 
 struct State{
     let title: String
-    let lon: CLLocationDegrees
     let lat: CLLocationDegrees
-    let opacity: Float
+    let lon: CLLocationDegrees
 }
 let States: [State] = [
-    State(title: "California", lon: 36.77, lat: -119.42, opacity: 0.7),
-    State(title: "Los Angeles", lon: 34.05, lat: -118.24, opacity: 0.7),
-    State(title: "SanFrancisco", lon: 37.77, lat: -122.41, opacity: 0.7),
-    State(title: "San Diago", lon: 32.72, lat: -117.16, opacity: 0.7)
+    State(title: "California", lat: 36.77, lon: -119.42),
+       State(title: "Los Angeles", lat: 34.05, lon: -118.2),
+       State(title: "SanFrancisco", lat: 37.77, lon: -122.41),
+       State(title: "San Diago", lat: 32.72, lon: -117.16)
 ]
