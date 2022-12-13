@@ -8,7 +8,6 @@
 import UIKit
 
 class NewPlanTableViewCell: UITableViewCell {
-
     
     @IBOutlet var lineImageView: UIImageView!
     @IBOutlet var lblTitle: UILabel!

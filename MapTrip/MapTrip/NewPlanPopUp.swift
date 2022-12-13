@@ -51,7 +51,6 @@ class NewPlanPopUp: UIView, UITextFieldDelegate {
         titleTextField.becomeFirstResponder()
         titleTextField.delegate = self
         
-        
     }
     
     @IBAction func switchDidChange(_ sender: UISwitch) {
@@ -80,6 +79,12 @@ class NewPlanPopUp: UIView, UITextFieldDelegate {
         formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
         print(formatter.string(from: datePickerView.date))
     }
+    
+    
+    @IBAction func saveAction(_ sender: Any) {
+        
+    }
+    
     // PopUP
     func xibSetup(frame: CGRect){
         let view = loadXid()
