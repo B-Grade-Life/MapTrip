@@ -9,12 +9,12 @@ import UIKit
 
 //table list
 struct table{
-    let title: String
+    let content: String
     let date: String
 }
 
-let tableData: [table] = [
-    table(title: "일정", date: "2022년 12월 05일 - 2022년 12월 07일"),
-    table(title: "미팅", date: "2022년 12월 13일")
+let tableData0: [table] = [
+    table(content: "일정", date: "2022년 12월 05일 - 2022년 12월 07일"),
+    table(content: "미팅", date: "2022년 12월 13일")
 ]
       

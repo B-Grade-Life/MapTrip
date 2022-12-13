@@ -22,8 +22,11 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     var prevLat: CLLocationDegrees = 34.09876574831812
     var prevLon: CLLocationDegrees = -118.32556470475944
     var searchCategory: String = ""
-   // var markers = [Double]() //배열 선언 및 초기화
     
+    var bestRoute: String = ""
+    var bestRouteText: String = ""
+    var secRoute: String = ""
+    var secRouteText: String = ""
     
     struct State{
         let lat: CLLocationDegrees
@@ -65,7 +68,6 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             stateMarker.icon = GMSMarker.markerImage(with: .blue)
             stateMarker.map = mapView
         }
-        
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
@@ -90,8 +92,9 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             stateMarker.icon = GMSMarker.markerImage(with: .black)
             stateMarker.map = mapView
         }
-        
     }
+    
+    
     //mapView
     override func loadView() {
         super.loadView()
@@ -104,23 +107,24 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
       print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
-        
-        prevLat = coordinate.latitude
-        prevLon = coordinate.longitude
+      prevLat = coordinate.latitude
+      prevLon = coordinate.longitude
       let marker = GMSMarker()
       marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
       marker.map = mapView
     }
+    
+    var markers: Array = [[String: Any]]()
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker ) -> Bool {
         print("You tapped at \(marker.position.latitude), \(marker.position.longitude)")
         print()
         States.append(
             State(
-                lat: marker.position.latitude,
+              lat: marker.position.latitude,
               lon: marker.position.longitude,
               opacity: 1.0,
-                category: self.searchCategory
+              category: self.searchCategory
             )
         )
         
@@ -133,11 +137,48 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             stateMarker.opacity = 1
             stateMarker.icon = GMSMarker.markerImage(with: .blue)
             stateMarker.map = mapView
+            
             print(state.category)
+            
+            markers.append([
+                "lat": Float(state.lat),
+                "lon": Float(state.lon),
+                "category": state.category
+            ])
         }
-        
+        print("markers:", markers)
+        print([
+            "lat": prevLat,
+            "lon": prevLon,
+            "category": searchBar.text
+        ])
         return true
     }
+    
+    var shortDistancne: [Response1] = []
+    @IBAction func getShortDistance(_ sender: Any) {
+        requestPost1(url: "http://172.30.1.35:5642/map/shortestDistance", method: "POST", param: markers)
+        {(success, data) in
+            self.shortDistancne = data.data
+            self.bestRoute = String(self.shortDistancne[0].distance)
+            self.bestRouteText = self.shortDistancne[0].route
+            self.secRoute = String(self.shortDistancne[1].distance)
+            self.secRouteText = self.shortDistancne[1].route
+        }
+    }
+    
+    override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
+        sleep(1)
+        if seque.destination is ViewControllerMapRoute {
+          let vc = seque.destination as? ViewControllerMapRoute
+          vc?.bestRoute = self.bestRoute
+            vc?.bestRouteText = self.bestRouteText
+            vc?.secRoute = self.secRoute
+            vc?.secRouteText = self.secRouteText
+        }
+        
+    }
+    
 }
 
 struct Data: Codable {
@@ -149,6 +190,15 @@ struct Response: Codable {
     let lon: CLLocationDegrees
     let opacity: Float
     let category: String
+}
+
+struct Data1: Codable {
+    let data: [Response1]
+}
+
+struct Response1: Codable {
+    let distance: Float
+    let route: String
 }
 
 func requestPost(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Data) -> Void) {
@@ -179,6 +229,42 @@ func requestPost(url: String, method: String, param: [String: Any], completionHa
             return
         }
         guard let output = try? JSONDecoder().decode(Data.self, from: data) else {
+            print("Error: JSON Data Parsing failed")
+            return
+        }
+        
+        completionHandler(true, output)
+    }.resume()
+}
+
+func requestPost1(url: String, method: String, param: [[String: Any]], completionHandler: @escaping (Bool, Data1) -> Void) {
+    let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
+    
+    guard let url = URL(string: url) else {
+        print("Error: cannot create URL")
+        return
+    }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = method
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = sendData
+    
+    URLSession.shared.dataTask(with: request) { (data, response, error) in
+        guard error == nil else {
+            print("Error: error calling GET")
+            print(error!)
+            return
+        }
+        guard let data = data else {
+            print("Error: Did not receive data")
+            return
+        }
+        guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+            print("Error: HTTP request failed")
+            return
+        }
+        guard let output = try? JSONDecoder().decode(Data1.self, from: data) else {
             print("Error: JSON Data Parsing failed")
             return
         }

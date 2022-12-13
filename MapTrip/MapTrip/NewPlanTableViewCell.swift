@@ -14,7 +14,7 @@ class NewPlanTableViewCell: UITableViewCell {
     @IBOutlet var lblDate: UILabel!
     
     func setup(with plan: table){
-        lblTitle.text = plan.title
+        lblTitle.text = plan.content
         lblDate.text = plan.date
     }
 }
