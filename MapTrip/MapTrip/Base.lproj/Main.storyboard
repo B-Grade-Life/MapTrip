@@ -375,6 +375,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4F-KV-dHb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="148"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="btnMoveMap:" destination="YmO-ul-wzj" eventType="touchUpInside" id="zZk-wr-LOq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="Main Color"/>
                                         </collectionViewCellContentView>
@@ -798,20 +807,20 @@
                                                             <action selector="addPlan:" destination="2iy-pg-TSS" eventType="touchUpInside" id="uRG-2i-dy0"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LA 게티센터 ➜ 파머스마켓 ➜ LA 유니버셜스튜디오" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q33-3J-nFJ">
-                                                        <rect key="frame" x="89" y="11" width="249" height="36"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LA 게티센터 ➜ 파머스마켓 ➜ LA 유니버셜스튜디오abcdef" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q33-3J-nFJ">
+                                                        <rect key="frame" x="95" y="11" width="243" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrB-IB-gm7">
-                                                        <rect key="frame" x="11" y="11" width="78" height="35"/>
+                                                        <rect key="frame" x="11" y="11" width="83" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" name="Point Color"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,234m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RZ-u9-hDU">
-                                                        <rect key="frame" x="20" y="19" width="60" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9,999m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RZ-u9-hDU">
+                                                        <rect key="frame" x="18" y="19" width="69" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -833,20 +842,20 @@
                                                             <action selector="addPlan2:" destination="2iy-pg-TSS" eventType="touchUpInside" id="DOl-E2-MZG"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LA 게티센터 ➜ LA 유니버셜스튜디오 ➜ 파머스마켓" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-rA-LlY">
-                                                        <rect key="frame" x="89" y="11" width="249" height="36"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LA 게티센터 ➜ LA 유니버셜스튜디오 ➜ 파머스마켓abcde" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-rA-LlY">
+                                                        <rect key="frame" x="96" y="11" width="242" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OD6-Mq-kNv">
-                                                        <rect key="frame" x="11" y="11" width="78" height="35"/>
+                                                        <rect key="frame" x="11" y="11" width="83" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" name="#E0D9CE"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2,345m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCO-Vv-hNJ">
-                                                        <rect key="frame" x="19" y="18" width="62" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9,999m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCO-Vv-hNJ">
+                                                        <rect key="frame" x="18" y="18" width="70" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -915,6 +924,10 @@
                     <connections>
                         <outlet property="box1" destination="PrB-IB-gm7" id="jBL-Kk-xfC"/>
                         <outlet property="box2" destination="OD6-Mq-kNv" id="pRb-tS-0h2"/>
+                        <outlet property="lblBestRoute" destination="3RZ-u9-hDU" id="gG0-KV-G5N"/>
+                        <outlet property="lblBestRouteText" destination="Q33-3J-nFJ" id="50s-HC-YVd"/>
+                        <outlet property="lblRoute" destination="DCO-Vv-hNJ" id="Jf4-YC-mB4"/>
+                        <outlet property="lblRouteText" destination="Mhz-rA-LlY" id="lgc-44-lFh"/>
                         <outlet property="viewBestRoute" destination="lNh-fB-oqG" id="nCp-zd-tTz"/>
                         <outlet property="viewRoute" destination="ffJ-5q-UQR" id="KnB-fL-PeF"/>
                     </connections>

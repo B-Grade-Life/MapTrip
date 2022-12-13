@@ -22,7 +22,8 @@ class ViewControllerHome: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        
         let date = NSDate()
         let dateFormatterWeekday = DateFormatter()
         let dateFormatterDays = DateFormatter()
