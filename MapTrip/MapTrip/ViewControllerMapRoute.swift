@@ -77,7 +77,6 @@ class ViewControllerMapRoute: UIViewController {
         self.commercialPopUp.removeFromSuperview()
     }
     @objc func addBtnTapped(){
-        
         self.commercialPopUp.removeFromSuperview()
     }
     @objc func closeBtnTapped2(){

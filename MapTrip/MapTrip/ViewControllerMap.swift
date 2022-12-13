@@ -21,6 +21,7 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     var prevLat: CLLocationDegrees = 34.09876574831812
     var prevLon: CLLocationDegrees = -118.32556470475944
+    var searchCategory: String = ""
    // var markers = [Double]() //배열 선언 및 초기화
     
     
@@ -31,7 +32,7 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let category: String
     }
     
-    let States: [State] = [
+    var States: [State] = [
         State(lat: 34.0977173999738,
               lon: -118.32824691379166,
               opacity: 1.0,
@@ -65,11 +66,11 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             stateMarker.map = mapView
         }
         
-  }
+    }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         print(searchBar.text, prevLat, prevLon)
-        
+        self.searchCategory = searchBar.text!
         requestPost(url: "http://172.30.1.35:5642/map/getPlace", method: "POST", param: [
             "lat": prevLat,
             "lon": prevLon,
@@ -77,18 +78,16 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         ])
         { (success, data) in
             self.statesData = data.data
-//            print(self.statesData)
         }
-        
-        print(statesData)
+
+        sleep(2)
         
         for state in statesData{
-            print("check")
             let stateMarker = GMSMarker()
             stateMarker.position = CLLocationCoordinate2D(latitude: state.lat, longitude: state.lon)
             stateMarker.title = state.category
             stateMarker.opacity = state.opacity
-            stateMarker.icon = GMSMarker.markerImage(with: .green)
+            stateMarker.icon = GMSMarker.markerImage(with: .black)
             stateMarker.map = mapView
         }
         
@@ -105,11 +104,39 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
       print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+        
         prevLat = coordinate.latitude
         prevLon = coordinate.longitude
       let marker = GMSMarker()
       marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
       marker.map = mapView
+    }
+
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker ) -> Bool {
+        print("You tapped at \(marker.position.latitude), \(marker.position.longitude)")
+        print()
+        States.append(
+            State(
+                lat: marker.position.latitude,
+              lon: marker.position.longitude,
+              opacity: 1.0,
+                category: self.searchCategory
+            )
+        )
+        
+        mapView.clear()
+        
+        for state in States{
+            let stateMarker = GMSMarker()
+            stateMarker.position = CLLocationCoordinate2D(latitude: state.lat, longitude: state.lon)
+            stateMarker.title = state.category
+            stateMarker.opacity = 1
+            stateMarker.icon = GMSMarker.markerImage(with: .blue)
+            stateMarker.map = mapView
+            print(state.category)
+        }
+        
+        return true
     }
 }
 
