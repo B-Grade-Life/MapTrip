@@ -9,7 +9,6 @@ import UIKit
 
 class NewPlanPopUp: UIView, UITextFieldDelegate {
     
-    
     @IBOutlet var popUpView: UIView!
     @IBOutlet var closeBtn: UIButton!
     @IBOutlet var addBtn: UIButton!
@@ -20,6 +19,9 @@ class NewPlanPopUp: UIView, UITextFieldDelegate {
     @IBOutlet var endDateTimePicker: UIDatePicker!
     @IBOutlet var startDatePicker: UIDatePicker!
     @IBOutlet var endDatePicker: UIDatePicker!
+    
+    let formatter = DateFormatter()
+   
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -67,6 +69,17 @@ class NewPlanPopUp: UIView, UITextFieldDelegate {
         }
     }
     
+    @IBAction func startDateTimePicker(_ sender: UIDatePicker) {
+        let datePickerView = sender
+        formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+        print(formatter.string(from: datePickerView.date))
+    }
+    
+    @IBAction func endDateTimePicker(_ sender: UIDatePicker) {
+        let datePickerView = sender
+        formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+        print(formatter.string(from: datePickerView.date))
+    }
     // PopUP
     func xibSetup(frame: CGRect){
         let view = loadXid()

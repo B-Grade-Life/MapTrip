@@ -12,15 +12,16 @@ import UIKit
 class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelegate {
 
     @IBOutlet var MapView: UIView!
-//    @IBOutlet var bottomView: UIView!
     
     var mapView: GMSMapView!
-    
     let searchBar = UISearchBar()
     
-   @Published private (set) var lat: Float = 37.25
-   @Published private (set) var lon: Float = -119.9
-    var category: String = "Cafe"
+   @Published private (set) var lat: Float = 34.09876574831812
+   @Published private (set) var lon: Float = -118.32556470475944
+    
+    var prevLat: CLLocationDegrees = 34.09876574831812
+    var prevLon: CLLocationDegrees = -118.32556470475944
+   // var markers = [Double]() //배열 선언 및 초기화
     
     struct State{
         let title: String
@@ -28,10 +29,12 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let lon: CLLocationDegrees
     }
     let States: [State] = [
-        State(title: "California", lat: 36.77, lon: -119.42),
-           State(title: "Los Angeles", lat: 34.05, lon: -118.2),
-           State(title: "SanFrancisco", lat: 37.77, lon: -122.41),
-           State(title: "San Diago", lat: 32.72, lon: -117.16)
+        State(title: "The Dome Entertainment Centre",
+              lat: 34.0977173999738,
+              lon: -118.32824691379166),
+        State(title: "Trader Joe's",
+              lat: 34.10024052146207,
+              lon: -118.32656248651944)
     ]
 
     override func viewDidLoad() {
@@ -57,33 +60,34 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             let stateMarker = GMSMarker()
             stateMarker.position = CLLocationCoordinate2D(latitude: state.lat, longitude: state.lon)
             stateMarker.title = state.title
-            stateMarker.opacity = 0.7
+            stateMarker.opacity = 1
+            stateMarker.icon = GMSMarker.markerImage(with: .blue)
+            
             stateMarker.map = mapView
         }
-        
   }
-   
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print(searchText, self.lat, self.lon, self.category)
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        print(searchBar.text, prevLat, prevLon)
     }
-    
     //mapView
     override func loadView() {
         super.loadView()
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon), zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon), zoom: 15.0)
         mapView = GMSMapView.map(withFrame: MapView.frame, camera: camera)
         self.view.addSubview(mapView)
       }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
       print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+        prevLat = coordinate.latitude
+        prevLon = coordinate.longitude
       let marker = GMSMarker()
       marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-      marker.title = "California"
-      marker.snippet = "USA"
+//      marker.title = "California"
+//      marker.snippet = "USA"
       marker.map = mapView
     }
 }
