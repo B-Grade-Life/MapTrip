@@ -19,6 +19,10 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
     var selectedDate = Date()
     var totalSquares = [String]()
    
+    var content: String = ""
+    var stringDate: String = ""
+
+    var tableData: [table] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,22 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        requestPost5(url: "http://172.30.1.35:5642/calendar/select", method: "POST", param: [
+            "username": "gpstrio",
+            "from_date": "2022-11-21"
+        ])
+        { (success, data) in
+            self.content = data.content
+            print(self.content)
+            self.stringDate = data.date
+        }
+        sleep(1)
+        print(self.content)
+        print(self.stringDate)
+        tableData = [table(content: self.content, date: self.stringDate)]
+        //table.append(table(title: String, date: <#T##String#>))
+        tableView.reloadData()
     }
     
     func setCellsView()
@@ -48,15 +68,6 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
     func setMonthView()
     {
         totalSquares.removeAll()
-        
-//        var current = CalendarHelper().sundayForDate(date: selectedDate)
-//        let nextSunday = CalendarHelper().addDays(date: current, days: 7)
-//
-//        while (current < nextSunday)
-//        {
-//            totalSquares.append(current)
-//            current = CalendarHelper().addDays(date: current, days: 1)
-//        }
 
         let daysInMonth = CalendarHelper().daysInMonth(date: selectedDate)
         let firstDayOfMonth = CalendarHelper().firstOfMonth(date: selectedDate)
@@ -65,9 +76,6 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         var count: Int = 1
         while(count <= 42)
         {
-//            totalSquares.append(current)
-//            current = CalendarHelper().addDays(date: current, days: 1)
-            
             if(count <= startingSpaces || count - startingSpaces > daysInMonth)
             {
                 totalSquares.append("")
@@ -108,21 +116,18 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        selectedDate = totalSquares[indexPath.item]
         collectionView.reloadData()
     }
 
     @IBAction func previousMonth(_ sender: Any)
     {
         selectedDate = CalendarHelper().minusMonth(date: selectedDate)
-//        selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
         setMonthView()
     }
     
     @IBAction func nextMonth(_ sender: Any)
     {
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
-//        selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
         setMonthView()
     }
     
@@ -144,11 +149,52 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewPlanTableViewCell", for: indexPath) as! NewPlanTableViewCell
         
         cell.setup(with: tableData[indexPath.row])
+    
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 77
     }
-    
-    
 }
+
+struct Data5 : Codable {
+    let content: String
+    let date: String
+}
+
+func requestPost5(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Data5) -> Void) {
+    let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
+    
+    guard let url = URL(string: url) else {
+        print("Error: cannot create URL")
+        return
+    }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = method
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = sendData
+    
+    URLSession.shared.dataTask(with: request) { (data, response, error) in
+        guard error == nil else {
+            print("Error: error calling GET")
+            print(error!)
+            return
+        }
+        guard let data = data else {
+            print("Error: Did not receive data")
+            return
+        }
+        guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+            print("Error: HTTP request failed")
+            return
+        }
+        guard let output = try? JSONDecoder().decode(Data5.self, from: data) else {
+            print("Error: JSON Data Parsing failed")
+            return
+        }
+        
+        completionHandler(true, output)
+    }.resume()
+}
+

@@ -76,8 +76,8 @@ class ViewControllerHome: UIViewController, UICollectionViewDataSource, UICollec
         cell.setup(with: Groups[indexPath.row])
         return cell
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return Groups.count
     }
     
