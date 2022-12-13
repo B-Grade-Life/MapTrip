@@ -23,19 +23,27 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     var prevLon: CLLocationDegrees = -118.32556470475944
    // var markers = [Double]() //배열 선언 및 초기화
     
+    
     struct State{
-        let title: String
         let lat: CLLocationDegrees
         let lon: CLLocationDegrees
+        let opacity: Float
+        let category: String
     }
+    
     let States: [State] = [
-        State(title: "The Dome Entertainment Centre",
-              lat: 34.0977173999738,
-              lon: -118.32824691379166),
-        State(title: "Trader Joe's",
-              lat: 34.10024052146207,
-              lon: -118.32656248651944)
+        State(lat: 34.0977173999738,
+              lon: -118.32824691379166,
+              opacity: 1.0,
+              category: "The Dome Entertainment Centre"
+             ),
+        State(lat: 34.10024052146207,
+              lon: -118.32656248651944,
+              opacity: 1.0,
+              category: "Trader Joes")
     ]
+    
+    var statesData: [Response] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,27 +56,42 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
         
-        
-        requestPost(url: "http://192.168.70.192:5642/map/marker", method: "POST", param: ["token":"test"])
-        { (success, data) in
-            self.lat = data.lat
-            self.lon = data.lon
-            print(self.lat, self.lon)
-        }
-        
         for state in States{
             let stateMarker = GMSMarker()
             stateMarker.position = CLLocationCoordinate2D(latitude: state.lat, longitude: state.lon)
-            stateMarker.title = state.title
+            stateMarker.title = state.category
             stateMarker.opacity = 1
             stateMarker.icon = GMSMarker.markerImage(with: .blue)
-            
             stateMarker.map = mapView
         }
+        
   }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         print(searchBar.text, prevLat, prevLon)
+        
+        requestPost(url: "http://172.30.1.35:5642/map/getPlace", method: "POST", param: [
+            "lat": prevLat,
+            "lon": prevLon,
+            "category": searchBar.text
+        ])
+        { (success, data) in
+            self.statesData = data.data
+//            print(self.statesData)
+        }
+        
+        print(statesData)
+        
+        for state in statesData{
+            print("check")
+            let stateMarker = GMSMarker()
+            stateMarker.position = CLLocationCoordinate2D(latitude: state.lat, longitude: state.lon)
+            stateMarker.title = state.category
+            stateMarker.opacity = state.opacity
+            stateMarker.icon = GMSMarker.markerImage(with: .green)
+            stateMarker.map = mapView
+        }
+        
     }
     //mapView
     override func loadView() {
@@ -86,19 +109,22 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         prevLon = coordinate.longitude
       let marker = GMSMarker()
       marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-//      marker.title = "California"
-//      marker.snippet = "USA"
       marker.map = mapView
     }
 }
 
-struct Response: Codable {
-    let success: Bool
-    let lat: Float
-    let lon: Float
+struct Data: Codable {
+    let data: [Response]
 }
 
-func requestPost(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Response) -> Void) {
+struct Response: Codable {
+    let lat: CLLocationDegrees
+    let lon: CLLocationDegrees
+    let opacity: Float
+    let category: String
+}
+
+func requestPost(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Data) -> Void) {
     let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
     
     guard let url = URL(string: url) else {
@@ -125,7 +151,7 @@ func requestPost(url: String, method: String, param: [String: Any], completionHa
             print("Error: HTTP request failed")
             return
         }
-        guard let output = try? JSONDecoder().decode(Response.self, from: data) else {
+        guard let output = try? JSONDecoder().decode(Data.self, from: data) else {
             print("Error: JSON Data Parsing failed")
             return
         }
