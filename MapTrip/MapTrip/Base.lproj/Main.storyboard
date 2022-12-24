@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller Login-->
         <scene sceneID="vJD-CY-nkn">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="tgK-io-qXG" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="tgK-io-qXG" customClass="ViewControllerLogin" customModule="MapTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fYk-XQ-IoK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="lN5-2e-haQ" kind="showDetail" animates="NO" id="Ql2-sm-ee6"/>
+                                    <action selector="loginBtnHandler:" destination="tgK-io-qXG" eventType="touchUpInside" id="WpI-5K-uEU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNP-ty-buE">
@@ -65,6 +65,13 @@
                                     <segue destination="0ik-c2-yIG" kind="show" id="XPs-fR-hiI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RST-lc-5ZB">
+                                <rect key="frame" x="16" y="503" width="358" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="czz-fb-5u6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,15 +79,21 @@
                     <navigationItem key="navigationItem" id="Qsm-Sd-cxz">
                         <barButtonItem key="backBarButtonItem" title=" " id="CGx-z8-tdW"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="__email" destination="LLr-OU-5kp" id="jvH-MF-oGn"/>
+                        <outlet property="__failed_login_msg" destination="RST-lc-5ZB" id="u6W-iz-8JN"/>
+                        <outlet property="__password" destination="9PE-Ch-YKy" id="2OK-1u-Ykf"/>
+                        <segue destination="lN5-2e-haQ" kind="show" identifier="toTapBar" id="u5Y-fN-Kcd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9eg-rz-o46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-1863"/>
+            <point key="canvasLocation" x="-329.23076923076923" y="-1863.2701421800948"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Signup-->
         <scene sceneID="ilQ-iB-FB1">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="0ik-c2-yIG" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="0ik-c2-yIG" customClass="ViewControllerSignup" customModule="MapTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KHD-uD-NVC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +129,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="DEj-Sf-4qI" kind="show" id="LhV-A7-Cge"/>
+                                    <action selector="nextBtnHandler:" destination="0ik-c2-yIG" eventType="touchUpInside" id="RZN-xJ-su2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHv-hE-2a6">
@@ -142,6 +155,13 @@
                                     <segue destination="tgK-io-qXG" kind="show" id="wDl-pw-We1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pab-wj-ghW">
+                                <rect key="frame" x="16" y="533" width="358" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JeX-Iz-5RS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -149,6 +169,12 @@
                     <navigationItem key="navigationItem" id="WLJ-Sk-iaZ">
                         <barButtonItem key="backBarButtonItem" title=" " id="Ehh-24-ZHB"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="__birthday" destination="e2e-b2-pri" id="Ozz-wH-THj"/>
+                        <outlet property="__invalid_user_info_msg" destination="Pab-wj-ghW" id="UTf-RX-X87"/>
+                        <outlet property="__name" destination="XLK-7f-Dkg" id="PkJ-qh-Lxi"/>
+                        <segue destination="DEj-Sf-4qI" kind="show" identifier="toInputUserAccount" id="tPa-bp-wqr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJT-vC-Exc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1124,10 +1150,10 @@
             </objects>
             <point key="canvasLocation" x="950.76923076923072" y="346.91943127962082"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Signup-->
         <scene sceneID="qjf-4m-vtl">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="DEj-Sf-4qI" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="DEj-Sf-4qI" customClass="ViewControllerSignup" customModule="MapTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JFH-9I-yVd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1162,6 +1188,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginBtnHandler:" destination="DEj-Sf-4qI" eventType="touchUpInside" id="FuQ-Kg-0AZ"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  비밀번호 재입력" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="PPP-iD-KGr">
                                 <rect key="frame" x="16" y="533" width="358" height="70"/>
@@ -1192,11 +1221,25 @@
                                     <segue destination="0ik-c2-yIG" kind="show" id="4CS-Vc-WfN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEc-1B-BQd">
+                                <rect key="frame" x="16" y="604" width="358" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dd3-Ot-vrk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="DeH-GJ-MyL"/>
+                    <connections>
+                        <outlet property="__confirmPassword" destination="PPP-iD-KGr" id="avA-g2-Uzv"/>
+                        <outlet property="__email" destination="ihh-aa-B8o" id="YLh-kf-kWJ"/>
+                        <outlet property="__incorrect_info_msg" destination="IEc-1B-BQd" id="HAF-rH-YpQ"/>
+                        <outlet property="__password" destination="XJ8-nZ-1ol" id="HRw-sV-i5g"/>
+                        <segue destination="lN5-2e-haQ" kind="show" identifier="toTapBar" id="OTN-lM-Ug4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EzK-2h-ax6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1204,7 +1247,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XPs-fR-hiI"/>
+        <segue reference="OTN-lM-Ug4"/>
+        <segue reference="4CS-Vc-WfN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Active Calendar" width="24" height="24"/>
