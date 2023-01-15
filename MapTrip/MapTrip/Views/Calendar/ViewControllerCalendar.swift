@@ -39,7 +39,7 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         tableView.delegate = self
         tableView.dataSource = self
         
-        requestPost5(url: "http://172.30.1.35:5642/calendar/select", method: "POST", param: [
+        requestCalendar(url: API_Address + "/calendar/select", method: "POST", param: [
             "username": "gpstrio",
             "from_date": "2022-11-21"
         ])
@@ -157,12 +157,12 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
     }
 }
 
-struct Data5 : Codable {
+struct calendarData : Codable {
     let content: String
     let date: String
 }
 
-func requestPost5(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Data5) -> Void) {
+func requestCalendar(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, calendarData) -> Void) {
     let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
     
     guard let url = URL(string: url) else {
@@ -189,7 +189,7 @@ func requestPost5(url: String, method: String, param: [String: Any], completionH
             print("Error: HTTP request failed")
             return
         }
-        guard let output = try? JSONDecoder().decode(Data5.self, from: data) else {
+        guard let output = try? JSONDecoder().decode(calendarData.self, from: data) else {
             print("Error: JSON Data Parsing failed")
             return
         }
