@@ -47,7 +47,7 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
               category: "Trader Joes")
     ]
     
-    var statesData: [Response] = []
+    var statesData: [CategoryData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +73,7 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         print(searchBar.text, prevLat, prevLon)
         self.searchCategory = searchBar.text!
-        requestPost(url: "http://172.30.1.35:5642/map/getPlace", method: "POST", param: [
+        requestCategoryMarker(url: API_Address + "/map/getPlace", method: "POST", param: [
             "lat": prevLat,
             "lon": prevLon,
             "category": searchBar.text
@@ -155,9 +155,9 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         return true
     }
     
-    var shortDistancne: [Response1] = []
+    var shortDistancne: [ShortestDistanceData] = []
     @IBAction func getShortDistance(_ sender: Any) {
-        requestPost1(url: "http://172.30.1.35:5642/map/shortestDistance", method: "POST", param: markers)
+        requestShortestDistance(url: API_Address + "/map/shortestDistance", method: "POST", param: markers)
         {(success, data) in
             self.shortDistancne = data.data
             self.bestRoute = String(self.shortDistancne[0].distance)
@@ -181,27 +181,29 @@ class ViewControllerMap: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
 }
 
-struct Data: Codable {
-    let data: [Response]
+struct CategoryDataList: Codable {
+    let data: [CategoryData]
 }
 
-struct Response: Codable {
+struct CategoryData: Codable {
     let lat: CLLocationDegrees
     let lon: CLLocationDegrees
     let opacity: Float
     let category: String
 }
 
-struct Data1: Codable {
-    let data: [Response1]
+struct ShortestDistanceDataList: Codable {
+    let data: [ShortestDistanceData]
 }
 
-struct Response1: Codable {
+struct ShortestDistanceData: Codable {
     let distance: Float
     let route: String
 }
 
-func requestPost(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Data) -> Void) {
+func requestCategoryMarker(
+    url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, CategoryDataList) -> Void
+) {
     let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
     
     guard let url = URL(string: url) else {
@@ -228,7 +230,7 @@ func requestPost(url: String, method: String, param: [String: Any], completionHa
             print("Error: HTTP request failed")
             return
         }
-        guard let output = try? JSONDecoder().decode(Data.self, from: data) else {
+        guard let output = try? JSONDecoder().decode(CategoryDataList.self, from: data) else {
             print("Error: JSON Data Parsing failed")
             return
         }
@@ -237,7 +239,7 @@ func requestPost(url: String, method: String, param: [String: Any], completionHa
     }.resume()
 }
 
-func requestPost1(url: String, method: String, param: [[String: Any]], completionHandler: @escaping (Bool, Data1) -> Void) {
+func requestShortestDistance(url: String, method: String, param: [[String: Any]], completionHandler: @escaping (Bool, ShortestDistanceDataList) -> Void) {
     let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
     
     guard let url = URL(string: url) else {
@@ -264,7 +266,7 @@ func requestPost1(url: String, method: String, param: [[String: Any]], completio
             print("Error: HTTP request failed")
             return
         }
-        guard let output = try? JSONDecoder().decode(Data1.self, from: data) else {
+        guard let output = try? JSONDecoder().decode(ShortestDistanceDataList.self, from: data) else {
             print("Error: JSON Data Parsing failed")
             return
         }
