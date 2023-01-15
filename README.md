@@ -9,3 +9,8 @@ Trip Route Recommendation and Schedule Management Service
 ## Developer
 - Main ⭐ : <img src = "https://avatars.githubusercontent.com/u/63152086?v=4" width=10 height=10> [mingyeong:D](https://github.com/Kim-Mingyeong)
 - Support : <img src = "https://avatars.githubusercontent.com/u/87547072?v=4" width=10 height=10> [david-laugh](https://github.com/david-laugh)
+
+
+# Blueprint
+2023.01.15  
+- Refactoring: Rename RestAPI Function
