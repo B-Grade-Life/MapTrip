@@ -72,8 +72,7 @@ class ViewControllerMapRoute: UIViewController {
         self.commercialPopUp.removeFromSuperview()
     }
     @objc func addBtnTapped(){
-        print("aaa")
-        requestPost4(url: "http://172.30.1.35:5642/calendar/insert", method: "POST",
+        fetchCalendar(url: API_Address + "/calendar/insert", method: "POST",
                     param: [
                         "username": "gpstrio",
                         "title": "test",
@@ -95,7 +94,7 @@ class ViewControllerMapRoute: UIViewController {
     }
 }
 
-struct Data3: Codable {
+struct CalendarData: Codable {
     let username: String
     let title: String
     let content: String
@@ -103,7 +102,7 @@ struct Data3: Codable {
     let to_date: Date
 }
 
-func requestPost4(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, Data3) -> Void) {
+func fetchCalendar(url: String, method: String, param: [String: Any], completionHandler: @escaping (Bool, CalendarData) -> Void) {
     let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
     
     guard let url = URL(string: url) else {
@@ -130,7 +129,7 @@ func requestPost4(url: String, method: String, param: [String: Any], completionH
             print("Error: HTTP request failed")
             return
         }
-        guard let output = try? JSONDecoder().decode(Data3.self, from: data) else {
+        guard let output = try? JSONDecoder().decode(CalendarData.self, from: data) else {
             print("Error: JSON Data Parsing failed")
             return
         }
