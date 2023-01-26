@@ -3,10 +3,12 @@
 Trip Route Recommendation and Schedule Management Service
 
 ## Application
-<img src=".Images/Screens/Home.png" width="117" height="255">
-<img src=".Images/Screens/Calendar.png" width="117" height="255">
-<img src=".Images/Screens/Map.png" width="117" height="255">
-<img src=".Images/Screens/Profile.png" width="117" height="255">
+<p>
+    <img src=".Images/Screens/Home.png" width="117" height="255">
+    <img src=".Images/Screens/Calendar.png" width="117" height="255">
+    <img src=".Images/Screens/Map.png" width="117" height="255">
+    <img src=".Images/Screens/Profile.png" width="117" height="255">
+</p>
 
 ## Release : dev.0.0.1
 1. Trip Route Recommendation Function
